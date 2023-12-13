@@ -29,7 +29,7 @@ function formatJson({
   sortKeys?: MaybeRef<boolean>
   indentSize?: MaybeRef<number>
 }) {
+  rawJson = rawJson.replace("\r\n","")
   const parsedObject = JSON5.parse(get(rawJson));
-
   return JSON.stringify(get(sortKeys) ? sortObjectKeys(parsedObject) : parsedObject, null, get(indentSize));
 }
